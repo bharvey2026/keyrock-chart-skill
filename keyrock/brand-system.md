@@ -53,11 +53,11 @@ When a chart has **many categories or series** (5+), prefer this palette first. 
 
 | Token | Hex | Reference |
 |---|---|---|
-| EXT_PERIWINKLE | `#9B96D6` | Soft blue-purple |
-| EXT_CORNFLOWER | `#5B7FD6` | Medium blue |
-| EXT_SLATE | `#353750` | Dark blue-grey |
-| EXT_ORCHID | `#B98CC8` | Warm purple-pink |
-| EXT_ORANGE | `#E8782F` | Warm orange |
+| EXT_PERIWINKLE | `#B0C2FF` | Soft blue-purple |
+| EXT_CORNFLOWER | `#3867FF` | Medium blue |
+| EXT_SLATE | `#303052` | Dark blue-grey |
+| EXT_ORCHID | `#A580FF` | Warm purple |
+| EXT_ORANGE | `#FF7800` | Warm orange |
 
 **Usage rule:** For charts with many categories, use `CHART_COLORS_EXTENDED` as the primary cycle. This palette is designed to feel harmonious across 5–12 data series. For charts with fewer categories (2–4), continue using the standard accent colours (teal, blue, amber, etc.). The extended palette may be combined with the standard accents if more than 5 colours are needed — append standard accents after the extended set.
 
@@ -265,11 +265,11 @@ PURPLE = '#8B5CF6'
 GREEN = '#10B981'
 
 # Extended palette (preferred for 5+ category charts)
-PERIWINKLE = '#9B96D6'
-CORNFLOWER = '#5B7FD6'
-SLATE = '#353750'
-ORCHID = '#B98CC8'
-ORANGE = '#E8782F'
+PERIWINKLE = '#B0C2FF'
+CORNFLOWER = '#3867FF'
+SLATE = '#303052'
+ORCHID = '#A580FF'
+ORANGE = '#FF7800'
 
 # Chart colour cycles
 CHART_COLORS = [TEAL, BLUE, AMBER, GREEN, PURPLE, CORAL]
@@ -387,11 +387,11 @@ PURPLE     #8B5CF6     Additional category
 GREEN      #10B981     Positive / success
 
 Extended Palette (preferred for 5+ categories):
-PERIWINKLE #9B96D6     Soft blue-purple
-CORNFLOWER #5B7FD6     Medium blue
-SLATE      #353750     Dark blue-grey
-ORCHID     #B98CC8     Warm purple-pink
-ORANGE     #E8782F     Warm orange
+PERIWINKLE #B0C2FF     Soft blue-purple
+CORNFLOWER #3867FF     Medium blue
+SLATE      #303052     Dark blue-grey
+ORCHID     #A580FF     Warm purple
+ORANGE     #FF7800     Warm orange
 
 Light BG   #FFFFFF     Dark BG    #0B1A2E
 Light Text #171717     Dark Text  #FFFFFF
