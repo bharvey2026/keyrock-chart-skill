@@ -77,6 +77,22 @@ def format_number(val):
         return f'${val:.0f}'
 ```
 
+### Colour Cycle Selection
+
+Choose the right colour cycle based on the number of data series/categories:
+
+```python
+# 2–4 categories: use standard accents
+colors = CHART_COLORS[:n_categories]
+
+# 5+ categories: use extended palette (preferred for multi-category charts)
+colors = CHART_COLORS_EXTENDED[:n_categories]
+```
+
+The extended palette (`CHART_COLORS_EXTENDED`) leads with periwinkle, cornflower, slate, orchid, and orange — colours drawn from Keyrock's research visual identity. These provide a more cohesive, institutional feel when many categories appear together. Standard accents (teal, blue, amber, etc.) are appended after the first five for charts needing more than 5 colours.
+
+When semantic meaning applies (e.g., green = positive, coral = negative), semantic colours override the cycle regardless of category count.
+
 ### Grid and Spine Rules
 
 ```python

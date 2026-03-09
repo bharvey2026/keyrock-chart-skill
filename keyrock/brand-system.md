@@ -47,7 +47,21 @@ Accent colours are **identical** across light and dark mode. Only background, te
 | GRID_COLOR | `#1E3A5F` | Gridlines |
 | BORDER_COLOR | `#2D4A6F` | Borders / axes |
 
-### 1.4 Status Colours
+### 1.4 Extended Palette (Preferred for Multi-Category Charts)
+
+When a chart has **many categories or series** (5+), prefer this palette first. These colours are drawn from Keyrock's research visual identity and provide a cohesive, institutional feel when used together.
+
+| Token | Hex | Reference |
+|---|---|---|
+| EXT_PERIWINKLE | `#9B96D6` | Soft blue-purple |
+| EXT_CORNFLOWER | `#5B7FD6` | Medium blue |
+| EXT_SLATE | `#353750` | Dark blue-grey |
+| EXT_ORCHID | `#B98CC8` | Warm purple-pink |
+| EXT_ORANGE | `#E8782F` | Warm orange |
+
+**Usage rule:** For charts with many categories, use `CHART_COLORS_EXTENDED` as the primary cycle. This palette is designed to feel harmonious across 5–12 data series. For charts with fewer categories (2–4), continue using the standard accent colours (teal, blue, amber, etc.). The extended palette may be combined with the standard accents if more than 5 colours are needed — append standard accents after the extended set.
+
+### 1.5 Status Colours
 
 | Token | Hex | Meaning |
 |---|---|---|
@@ -160,8 +174,9 @@ Colours are assigned in this priority order:
 3. **Primary data series:** ACCENT_BLUE (`#3B82F6`) or ACCENT_TEAL (`#00C9A7`)
 4. **Secondary series:** Next in hierarchy — amber, purple, green, coral
 5. **Sequential / gradient data:** Single hue with varying opacity
-6. **Categorical data:** Cycle through accents in order: teal, blue, amber, green, purple, coral
-7. **Never** use background or text colours for data series
+6. **Categorical data (2–4 series):** Cycle through standard accents: teal, blue, amber, green, purple, coral
+7. **Categorical data (5+ series):** Prefer `CHART_COLORS_EXTENDED` (periwinkle, cornflower, slate, orchid, orange) — these provide a more cohesive, institutional feel for many-category charts. Append standard accents if more colours are needed.
+8. **Never** use background or text colours for data series
 8. **Positive/negative pairs** may use green/coral where contextually appropriate
 
 ---
@@ -249,8 +264,16 @@ DEEP_RED = '#8B0A0A'
 PURPLE = '#8B5CF6'
 GREEN = '#10B981'
 
-# Chart colour cycle
+# Extended palette (preferred for 5+ category charts)
+PERIWINKLE = '#9B96D6'
+CORNFLOWER = '#5B7FD6'
+SLATE = '#353750'
+ORCHID = '#B98CC8'
+ORANGE = '#E8782F'
+
+# Chart colour cycles
 CHART_COLORS = [TEAL, BLUE, AMBER, GREEN, PURPLE, CORAL]
+CHART_COLORS_EXTENDED = [PERIWINKLE, CORNFLOWER, SLATE, ORCHID, ORANGE, TEAL, BLUE, AMBER, GREEN, PURPLE, CORAL]
 
 plt.rcParams.update({
     'font.family': 'sans-serif',
@@ -354,6 +377,7 @@ def export_chart(fig, name, output_dir='.', dpi=250, formats=('svg', 'png', 'pdf
 ## Quick Reference — Colour Hex Cheat Sheet
 
 ```
+Standard Accents:
 TEAL       #00C9A7     Primary accent
 BLUE       #3B82F6     Secondary accent
 AMBER      #F59E0B     Highlight / attention
@@ -361,6 +385,13 @@ CORAL      #EF4444     Risk / warning / negative (fill/shading)
 DEEP_RED   #8B0A0A     Risk / warning / negative (lines)
 PURPLE     #8B5CF6     Additional category
 GREEN      #10B981     Positive / success
+
+Extended Palette (preferred for 5+ categories):
+PERIWINKLE #9B96D6     Soft blue-purple
+CORNFLOWER #5B7FD6     Medium blue
+SLATE      #353750     Dark blue-grey
+ORCHID     #B98CC8     Warm purple-pink
+ORANGE     #E8782F     Warm orange
 
 Light BG   #FFFFFF     Dark BG    #0B1A2E
 Light Text #171717     Dark Text  #FFFFFF
