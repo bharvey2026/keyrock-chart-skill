@@ -96,9 +96,14 @@ When semantic meaning applies (e.g., `#10B981` green = positive, `#EF4444` red =
 ### Grid and Spine Rules
 
 ```python
-# Always remove top and right spines
+# Always remove top, right, and left spines
 ax.spines['top'].set_visible(False)
 ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+
+# Bottom spine (X-axis line): visible, 2px
+ax.spines['bottom'].set_color(X_AXIS_COLOR)
+ax.spines['bottom'].set_linewidth(2)
 
 # Light mode grid
 ax.grid(axis='y', alpha=0.3, linewidth=0.5)
@@ -1176,7 +1181,7 @@ line = ax2.plot(months, price, color=PRIMARY[4], linewidth=2.5,
 ax1.set_ylabel('24h Volume (USD)', fontsize=12, color=PRIMARY_DEFAULT, weight='bold')
 ax1.yaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: format_number(x)))
 ax1.tick_params(axis='y', colors=PRIMARY_DEFAULT, labelsize=10, width=1, length=4)
-ax1.tick_params(axis='x', colors=X_TICK_COLOR, labelsize=10, width=1, length=4)
+ax1.tick_params(axis='x', colors=X_AXIS_COLOR, labelsize=10, width=1, length=4)
 
 # --- Right axis styling ---
 ax2.set_ylabel('BTC Price (USD)', fontsize=12, color=PRIMARY[4], weight='bold')
@@ -1186,9 +1191,9 @@ ax2.tick_params(axis='y', colors=PRIMARY[4], labelsize=10, width=1, length=4)
 # --- Spine styling ---
 ax1.spines['top'].set_visible(False)
 ax2.spines['top'].set_visible(False)
-ax1.spines['bottom'].set_visible(False)
-ax1.spines['left'].set_color(PRIMARY_DEFAULT)
-ax1.spines['left'].set_linewidth(2)
+ax1.spines['left'].set_visible(False)
+ax1.spines['bottom'].set_color(X_AXIS_COLOR)
+ax1.spines['bottom'].set_linewidth(2)
 ax2.spines['right'].set_color(PRIMARY[4])
 ax2.spines['right'].set_linewidth(2)
 ax1.spines['right'].set_visible(False)
@@ -2359,9 +2364,9 @@ Most templates use only `matplotlib` and `numpy` (standard). Special chart types
 ## Checklist: Before Exporting Any Chart
 
 1. Background colour set on both `fig` and `ax` (`facecolor=BG`)
-2. Top and right spines removed
+2. Top, right, and left spines removed; bottom spine visible (2px, `X_AXIS_COLOR`)
 3. Grid is subtle (`alpha=0.3`, `linewidth=0.5`)
-4. Tick and label colours use `TEXT_PRIMARY`
+4. X-axis tick/label colours use `TEXT_PRIMARY`; Y-axis tick colours use `Y_TICK_COLOR`
 5. Title uses `TEXT_PRIMARY`, `weight='bold'`, `fontsize=22-20`
 6. Source line present at bottom left
 7. `add_keyrock_logo(fig)` called
